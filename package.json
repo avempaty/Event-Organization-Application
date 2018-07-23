@@ -1,0 +1,7 @@
+{
+    "name": "event-organization-app",
+    "version": "0.0.0",
+    "scripts": {
+        "postinstall": "npm install --prefix app/server && npm install --prefix app/client"
+    }
+}

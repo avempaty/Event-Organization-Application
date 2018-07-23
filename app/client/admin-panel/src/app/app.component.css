@@ -1,0 +1,22 @@
+ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    flex-direction: row;
+    margin: 5px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    padding: 5px 10px;
+    border: 1px solid black;
+}
+
+.active {
+    background-color: black;
+    color: white;
+}

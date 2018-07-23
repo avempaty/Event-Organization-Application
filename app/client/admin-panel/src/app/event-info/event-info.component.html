@@ -1,0 +1,9 @@
+<h2>Event Info
+</h2>
+<p><span>Title:</span> {{event.title}}</p>
+<p><span>Date:</span> {{event.date | date}}</p>
+<p><span>Location:</span> {{event.location}}</p>
+<p><span>Information:</span> {{event.information}}</p>
+<div>
+<qr-code [value]="event._id" [size]="150"></qr-code>
+</div>

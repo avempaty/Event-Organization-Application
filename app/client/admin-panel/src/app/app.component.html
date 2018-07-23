@@ -1,0 +1,36 @@
+<div *ngIf="!loggedIn">
+    <h2>Login</h2>
+    <p>Username: <input [formControl]="userControl" type="text"></p>
+    <p>Password: <input [formControl]="passControl" type="password"></p>
+    <button (click)="logIn()">Login</button>
+</div>
+
+<div *ngIf="loggedIn">
+    <h2>Logged in as: {{username}}
+    <button (click)="logOut()">Logout</button>
+    </h2>
+    <p>
+        Select event: 
+        <select (change)="changeEvent($event.target.value)" [formControl]="eventControl">
+            <option disabled>Select an event</option>
+            <option *ngFor="let event of events" [value]="event._id">{{event.title}}</option>
+        </select>
+        <button (click)="setMode('add')">New Event</button>
+        <button *ngIf="selectedEvent" (click)="setMode('update')">Edit Event</button>
+        <button *ngIf="selectedEvent"(click)="deleteEvent()">Delete Event</button>
+    </p>
+
+    <div *ngIf="editMode">
+        <p>Title: <input [formControl]="titleControl" type="text"></p>
+        <p>Date: <input [formControl]="dateControl" type="date"></p>
+        <p>Location: <input [formControl]="locationControl" type="text"></p>
+        <p>Information: <input [formControl]="informationControl" type="text"></p>
+        <button (click)="saveEvent()">Save</button>
+        <button (click)="cancelEdit()">Cancel</button>
+    </div> 
+    <div *ngIf="selectedEvent">
+        <app-event-info [event]="selectedEvent"></app-event-info>
+        <app-moderators [event]="selectedEvent"></app-moderators>
+        <app-attendance [attendees]="selectedEvent.attendees" [participants]="selectedEvent.participants"></app-attendance>
+    </div>
+</div>

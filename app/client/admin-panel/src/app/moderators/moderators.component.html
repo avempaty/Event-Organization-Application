@@ -1,0 +1,7 @@
+<h1>Moderators</h1>
+<p>Add Moderator:</p> <input [formControl]="modControl" type="text"> <button (click)="addModerator()">Add</button>
+
+<h2>Current Moderators:</h2>
+<ul>
+<li *ngFor="let moderator of event.moderators">{{moderator}} <button (click)="removeModerator(moderator)">x</button></li>
+</ul>
